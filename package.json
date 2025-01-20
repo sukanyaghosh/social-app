@@ -1,0 +1,21 @@
+{
+  "name": "social-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently  \"npm run dev --prefix api\" \"npm run dev --prefix web\""
+  },
+  "keywords": [],
+  "author": "frontendweb-sg",
+  "license": "ISC",
+  "description": "",
+  "workspaces": {
+    "packages": [
+      "api",
+      "web"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
