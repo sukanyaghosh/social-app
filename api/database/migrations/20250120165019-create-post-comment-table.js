@@ -31,11 +31,11 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      message: { type: Sequelize.STRING, allowNull: true, defaultValue: '' },
+      message: { type: Sequelize.STRING, allowNull: false, defaultValue: '' },
       status: {
         type: Sequelize.ENUM, // Status options for messages
-        values: ['approved', 'rejected', 'draft'],
         allowNull: false,
+        values: ['approved', 'rejected', 'draft'],
         defaultValue: 'approved', // Default status is 'active',
       },
       created_at: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal("CURRENT_TIMESTAMP") },

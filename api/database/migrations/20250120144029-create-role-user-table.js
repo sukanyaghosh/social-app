@@ -13,7 +13,7 @@ module.exports = {
       user_id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       first_name: { type: Sequelize.STRING(50), allowNull: false },
       last_name: { type: Sequelize.STRING(50), allowNull: false },
-      email: { type: Sequelize.STRING, unique: true, allowNull: false, validate: { isEmail: true } },
+      email: { type: Sequelize.STRING, allowNull: false, unique: true, validate: { isEmail: true } },
       password: { type: Sequelize.STRING, allowNull: false, validate: { is: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, min: 8, max: 20 } },
       avatar: { type: Sequelize.STRING, allowNull: true, defaultValue: null },
       mobile: { type: Sequelize.STRING(10), allowNull: false, unique: true, validate: { is: /^\+?[1-9]\d{1,14}$/, min: 10, max: 10 } },

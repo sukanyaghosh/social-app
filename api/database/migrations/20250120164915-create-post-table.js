@@ -25,7 +25,7 @@ module.exports = {
       media: { type: Sequelize.ARRAY(Sequelize.STRING), allowNull: false, defaultValue: null },
       code: { type: Sequelize.TEXT, defaultValue: null, allowNull: true },
       tag: { type: Sequelize.ARRAY(Sequelize.STRING), allowNull: true, defaultValue: null },
-      status: { type: Sequelize.ENUM, values: ['public', 'private', 'friends', 'draft'], defaultValue: "public" },
+      status: { type: Sequelize.ENUM, allowNull: false, values: ['public', 'private', 'friends', 'draft'], defaultValue: "public" },
       views_count: { type: Sequelize.INTEGER, allowNull: false, defaultValue: 0, },
       features: { type: Sequelize.JSONB, allowNull: true, defaultValue: null },
       created_at: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal("CURRENT_TIMESTAMP") },

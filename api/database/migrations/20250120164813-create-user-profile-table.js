@@ -9,7 +9,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable("profiles", {
+    await queryInterface.createTable("profile", {
       profile_id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
       user_id: {
         type: Sequelize.INTEGER,
@@ -23,7 +23,7 @@ module.exports = {
       },
       bio: { type: Sequelize.TEXT, allowNull: true, defaultValue: null },
       dob: { type: Sequelize.DATE, allowNull: false, defaultValue: null },
-      gender: { type: Sequelize.ENUM, values: ['male', 'female', 'unknown'], defaultValue: 'unknown' },
+      gender: { type: Sequelize.ENUM, allowNull: false, values: ['male', 'female', 'unknown'], defaultValue: 'unknown' },
       degree: { type: Sequelize.STRING, allowNull: true, defaultValue: '' },
       website: { type: Sequelize.STRING, allowNull: true, defaultValue: '' },
       company: { type: Sequelize.STRING, allowNull: false },
@@ -33,10 +33,14 @@ module.exports = {
         references: { model: "designations", key: "designation_id" },
       },
       noticeperiod: { type: Sequelize.INTEGER, allowNull: true, defaultValue: 0 },
-      resume: { type: Sequelize.STRING, defaultValue: '', allowNull: true },
+      address_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "address", key: "address_id" },
+      },
+      resume: { type: Sequelize.STRING, allowNull: true, defaultValue: '' },
       total_exp: { type: Sequelize.DECIMAL(5, 2), allowNull: true, defaultValue: 0 },
-      salary: { type: Sequelize.DECIMAL(10, 2), defaultValue: 0.00, allowNull: true },
-      skills: { type: Sequelize.ARRAY(Sequelize.JSONB), allowNull: true, defaultValue: [] },
+      salary: { type: Sequelize.DECIMAL(10, 2), allowNull: true, defaultValue: 0.00 },
       educations: { type: Sequelize.ARRAY(Sequelize.JSONB), allowNull: true, defaultValue: [] },
       experiences: { type: Sequelize.ARRAY(Sequelize.JSONB), allowNull: true, defaultValue: [] },
       employments: { type: Sequelize.ARRAY(Sequelize.JSONB), allowNull: true, defaultValue: [] },
@@ -53,6 +57,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable("profiles")
+    await queryInterface.dropTable("profile")
   }
 };
