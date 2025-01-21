@@ -1,4 +1,3 @@
-import { Options } from "sequelize";
 export const option = {
     // database configuration
     username: process.env.DB_USER,
@@ -18,7 +17,7 @@ export const option = {
 console.log("PO", option);
 
 if (process.env.NODE_ENV === "production") {
-    (option as Options).dialectOptions = {
+    option.dialectOptions = {
         ssl: {
             rejectUnauthorized: true,
         },
