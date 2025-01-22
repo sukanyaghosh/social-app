@@ -3,6 +3,7 @@ import express from "express";
 import path from "path";
 import { errorHandler } from "./middleware/error-handler";
 import { roleRoute } from "./routes/role";
+import { authRoute } from "./routes/auth";
 
 // Create a new express application
 const app = express();
@@ -26,6 +27,7 @@ app.get("/api", (req, res) => {
 });
 
 app.use("/api/v1/role", roleRoute);
+app.use("/api/v1/auth", authRoute);
 
 // error handler
 app.use(errorHandler);

@@ -1,0 +1,47 @@
+# Role
+# GET https://example.com/comments?page=2&pageSize=10
+
+### Get All Roles
+GET http://localhost:3001/api/v1/role HTTP/1.1
+
+### Create Role
+POST http://localhost:3001/api/v1/role HTTP/1.1
+content-type: application/json
+
+{
+    "name": "user"
+}
+
+### Update Role
+PUT http://localhost:3001/api/v1/role/1 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "user"
+}
+
+
+### Create user
+
+POST http://localhost:3001/api/v1/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "Pradeep",
+    "last_name": "Kumar",
+    "email": "pradeep.kumar5@rsystems.com",
+    "password": "Admin$12345@",
+    "mobile":"7291893484"
+}
+
+### Login user
+
+POST http://localhost:3001/api/v1/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email": "pradeep.kumar5@rsystems.com",
+    "password": "Admin$12345@"
+}
+
+
