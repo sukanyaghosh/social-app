@@ -1,39 +1,20 @@
 import "./App.css";
-import Input from "./components/form/Input";
+import Layout from "./auth/Layout";
+import { Routes, Route } from "react-router";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import ForgotPassword from "./auth/ForgotPassword";
 
 function App() {
-  const courses = ["html", "js", "css", "bootstrap", "react"];
-
   return (
-    <>
-      <Input
-        size="sm"
-        type="radio"
-        label="Male"
-        id="radio1"
-        nameRadio="course"
-      />
-      <Input
-        size="sm"
-        type="radio"
-        label="Female"
-        id="radio2"
-        nameRadio="course"
-      />
-      <Input size="sm" type="checkbox" label="HTML" id="check1" />
-      <Input size="sm" type="checkbox" label="CSS" id="check2" />
-      <Input />
-      <Input size="lg" />
-      <Input
-        size="lg"
-        placeholder="Enter name"
-        type="select"
-        options={courses}
-        defaultOption="Select course"
-      >
-        <option value="">Select course</option>
-      </Input>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Login />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
+      </Route>
+    </Routes>
   );
 }
 
