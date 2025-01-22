@@ -31,6 +31,9 @@ export default function Login() {
       onSubmit={(values) => {
         console.log(values);
       }}
+      onReset={() => {
+        console.log("reset");
+      }}
     >
       <Form>
         <h2 className="text-uppercase fw-bold mb-4">Login</h2>
@@ -40,34 +43,12 @@ export default function Login() {
           type="email"
           placeholder="Enter email"
         />
-        <FormGroup>
-          <FormLabel label="Email" />
-          <Field
-            name="email"
-            type="email"
-            className="form-control"
-            placeholder="Enter email id"
-          />
-          <ErrorMessage
-            name="email"
-            component="small"
-            className="text-danger"
-          />
-        </FormGroup>
-        <FormGroup>
-          <FormLabel label="Password" />
-          <Field
-            name="password"
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-          />
-          <ErrorMessage
-            name="password"
-            component="small"
-            className="text-danger"
-          />
-        </FormGroup>
+        <MyInput
+          label="Password"
+          name="password"
+          type="password"
+          placeholder="Enter password"
+        />
         <div className="mb-3 d-flex justify-content-between">
           <Button size="sm" color="light">
             Forgot password?
